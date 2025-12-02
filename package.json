@@ -7,7 +7,8 @@
     "build": "slidev build --base /$npm_package_name",
     "dev": "slidev --open",
     "export": "slidev export --wait 1000  --per-slide --output ./slides.pdf",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "postinstall": "rm -f node_modules/slidev-theme-neversink/slide-bottom.vue"
   },
   "devDependencies": {
     "@slidev/cli": "^52.10.1",

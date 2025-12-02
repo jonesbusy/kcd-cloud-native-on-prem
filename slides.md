@@ -2,7 +2,7 @@
 colorSchema: light
 routerMode: hash
 layout: image
-theme: default
+theme: neversink
 neversink_slug: KCD Suisse Rommand 2025
 transition: slide-left
 image: images/theme_front.png
