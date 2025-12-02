@@ -12,9 +12,7 @@ mdc: true
 favicon: https://raw.githubusercontent.com/jenkinsci/oss-symbols-api-plugin/refs/heads/main/src/main/resources/images/symbols/operatorframework-icon-color.svg
 ---
 
-# Kubernetes Operators
-
-_Making on-prem infrastructure feel Cloud-Native with the Java Operator SDK_
+# Making on-prem infrastructure feel Cloud-Native with the Java Operator SDK
 
 **Valentin Delaye**
 <Email v="valentin.delaye@elca.ch" color="white" />
@@ -63,7 +61,7 @@ class: text
 # Agenda
 
 - `What` vs `How` and `Developer Experience`
-- `K8S Operators`
+- `K8S Operators` and the `KRM` model
 - `Java Operator SDK` and it's `Quarkus` extension
 - A `GitOps` and (`BackstageOps`) approach via `FluxCD`
 - Examples with K8S internal and external resources
@@ -76,9 +74,11 @@ columns: is-6
 align: l-lt-lt
 ---
 
+<v-click>
 <AdmonitionType type='tip' >
 Developers only define intent in manifests. Platform handles the rest.
 </AdmonitionType>
+</v-click>
 
 :: title ::
 
@@ -86,15 +86,27 @@ Developers only define intent in manifests. Platform handles the rest.
 
 :: left ::
 
-- I need to connect my app to a database
-- I need persistent storage for my service
-- I need my app to be highly available
+<v-click>- I need to connect my app to a database</v-click><br />
+<v-click>- I need persistent storage for my service</v-click><br />
+<v-click>- I need my app to be highly available</v-click><br />
 
 :: right ::
 
-- I need to know how to deploy a database
-- I need to know which storage class to use and how to provision it
-- I need to know how many replicas to choose, cluster topology, etc.
+<v-click>- I need to know how to deploy a database</v-click><br />
+<v-click>- I need to know which storage class to use and how to provision it</v-click><br />
+<v-click>- I need to know how many replicas to choose, cluster topology, etc.</v-click><br />
+
+---
+layout: image-right
+color: slate-light
+image: images/helm-boat.png
+class: text
+---
+
+# `Helm to the rescue?`
+
+- Package your Kubernetes resources as single deployable unit
+- Define values to customize your deployments per environment
 
 ---
 layout: top-title-two-cols
@@ -110,15 +122,21 @@ align: l-lt-lt
 
 :: left ::
 
+<v-click>
 <<< @/snippets/cr/helm-release-dev.yaml
+</v-click>
 
+<v-click at="3">
 <AdmonitionType type='warning' >
 Different values for different environments (dev/prod)<br />More abstraction needed
 </AdmonitionType>
+</v-click>
 
 :: right ::
 
+<v-click>
 <<< @/snippets/cr/helm-release-prod.yaml
+</v-click>
 
 ---
 layout: top-title-two-cols
@@ -127,12 +145,14 @@ columns: is-6
 align: l-lt-lt
 ---
 
+<v-click>
 <strong>A Kubernetes Operator could</strong>
 
 - Deploy a Database on K8S or provision a new schema on an external cluster (external resource)
 - Drop a `ConfigMap` and `Secret` with required connection info
 - Set the correct number of replicas, affinity rules, monitoring, etc.
 - etc.
+</v-click>
 
 :: title ::
 
@@ -140,11 +160,16 @@ align: l-lt-lt
 
 :: left ::
 
+<v-click>
 <<< @/snippets/cr/cr-app-dev.yaml
+</v-click>
 
 :: right ::
 
+<v-click>
 <<< @/snippets/cr/cr-app-prod.yaml
+</v-click>
+
 ---
 layout: image-left
 color: slate-light
@@ -161,6 +186,37 @@ flowchart LR
     A[Desired State] -- Observe --> B[Actual State]
     B -- Reconcile --> A
 ```
+
+- Declarative (YAML manifests)
+- Immutable
+- Composable
+- Versioned (GitOps)
+- Extensible (KRM)
+
+---
+layout: top-title-two-cols
+color: slate-light
+---
+
+:: title ::
+
+# KRM and developer platform
+
+:: left ::
+
+Everything is a resource
+
+- An application
+- A database (inside or outside K8S)
+- A firewall rule
+- An image repository
+- A DNS entry
+- A service account token
+- etc.
+
+:: right ::
+
+<img src="/images/idp.excalidraw.svg" alt="IDP"/>
 
 ---
 layout: top-title-two-cols

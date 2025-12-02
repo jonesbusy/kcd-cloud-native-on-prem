@@ -18,5 +18,3 @@ spec:
       port: 5432
       name: myappdb
       user: myappuser
-      passwordSecret:
-        name: my-app-db-credentials

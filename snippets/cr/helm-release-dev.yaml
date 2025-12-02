@@ -12,7 +12,5 @@ spec:
     database:
       external: false
       resources: 
-         requests:
-           memory: "512Mi"
          limits:
            memory: "512Mi"
