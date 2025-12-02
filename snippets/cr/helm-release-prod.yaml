@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: my-app
+spec:
+  chart:
+      ...
+  values:
+    ...
+    tag: 0.0.1
+    replicas: 3
+    affinity:
+      podAntiAffinity:
+        ...
+    database:
+      external: true
+      host: db.prod.internal
+      port: 5432
+      name: myappdb
+      user: myappuser
+      passwordSecret:
+        name: my-app-db-credentials

@@ -1,0 +1,62 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+        exclude: |
+          (?x)(
+            .*\.cjs|
+            .*\.png|
+            .*\.pdf|
+            .*\.svg
+          )$
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-yaml
+        exclude: |
+          (?x)(
+            snippets/cr/.*
+          )$
+        args:
+          - --allow-multiple-documents
+      - id: debug-statements
+      - id: destroyed-symlinks
+      - id: end-of-file-fixer
+        exclude: |
+          (?x)(
+            .*\.cjs|
+            .*\.svg
+          )$
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+        exclude: |
+          (?x)(
+            .*\.cjs|
+          )$
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        args:
+          - --ignore-words-list=afterall,AKS,aks,BUI
+        exclude: |
+          (?x)^(
+            .*/cert\.pem|
+            .*/\.pem\.text|
+            .*\.sops\.yaml|
+            yarn\.lock|
+            .*\.cjs|
+            .*\.svg
+          )$
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.37.1
+    hooks:
+      - id: yamllint
+        exclude: |
+          (?x)(
+            snippets/cr/.*
+          )$
+        args:
+          - '-fparsable'

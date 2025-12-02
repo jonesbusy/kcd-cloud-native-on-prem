@@ -1,0 +1,26 @@
+{
+  "name": "cloud-native-on-prem",
+  "type": "module",
+  "private": true,
+  "packageManager": "yarn@4.10.3",
+  "scripts": {
+    "build": "slidev build --base /$npm_package_name",
+    "dev": "slidev --open",
+    "export": "slidev export --wait 1000  --per-slide --output ./slides.pdf",
+    "prettier": "prettier --write ."
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.10.1",
+    "playwright-chromium": "^1.57.0",
+    "prettier": "^3.7.3",
+    "prettier-plugin-slidev": "^1.0.5",
+    "vite": "^7.2.6"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.10.1",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "slidev-theme-neversink": "^0.4.0",
+    "vue": "^3.5.25"
+  }
+}

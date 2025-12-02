@@ -1,0 +1,6 @@
+apiVersion: app.elca.ch/v1alpha1
+kind: MySuperApp
+metadata:
+  name: todo-app-1
+spec:
+  tag: latest

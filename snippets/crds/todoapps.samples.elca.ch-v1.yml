@@ -1,0 +1,21 @@
+apiVersion: "apiextensions.k8s.io/v1"
+kind: "CustomResourceDefinition"
+metadata:
+  name: "todoapps.samples.elca.ch"
+spec:
+  group: "samples.elca.ch"
+  names:
+    kind: "TodoApp"
+    plural: "todoapps"
+    singular: "todoapp"
+  scope: "Namespaced"
+  versions:
+    name: "v1"
+    schema:
+      openAPIV3Schema:
+        properties:
+          spec:
+            properties:
+              ...
+          status:
+            ...
