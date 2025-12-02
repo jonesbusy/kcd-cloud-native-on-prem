@@ -2,20 +2,13 @@
 colorSchema: light
 routerMode: hash
 layout: image
-theme: neversink
-neversink_slug: Platform Engineering - ELCA
+theme: default
+neversink_slug: KCD Suisse Rommand 2025
 transition: slide-left
 image: images/theme_front.png
 class: custom-bgr
 hideInToc: true
 mdc: true
-fonts:
-  # basically the text
-  sans: Robot
-  # use with `font-serif` css class from UnoCSS
-  serif: Robot Slab
-  # for code blocks, inline code, etc.
-  mono: Fira Code
 favicon: https://raw.githubusercontent.com/jenkinsci/oss-symbols-api-plugin/refs/heads/main/src/main/resources/images/symbols/operatorframework-icon-color.svg
 ---
 
