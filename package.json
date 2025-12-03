@@ -1,5 +1,5 @@
 {
-  "name": "cloud-native-on-prem",
+  "name": "kcd-cloud-native-on-prem",
   "type": "module",
   "private": true,
   "packageManager": "yarn@4.10.3",
@@ -8,7 +8,7 @@
     "dev": "slidev --open",
     "export": "slidev export --wait 1000  --per-slide --output ./slides.pdf",
     "prettier": "prettier --write .",
-    "postinstall": "rm -f node_modules/slidev-theme-neversink/slide-bottom.vue"
+    "postinstall": "cp slide-bottom.vue node_modules/slidev-theme-neversink/slide-bottom.vue"
   },
   "devDependencies": {
     "@slidev/cli": "^52.10.1",

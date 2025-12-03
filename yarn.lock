@@ -3534,22 +3534,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cloud-native-on-prem@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "cloud-native-on-prem@workspace:."
-  dependencies:
-    "@slidev/cli": "npm:^52.10.1"
-    "@slidev/theme-default": "npm:latest"
-    "@slidev/theme-seriph": "npm:latest"
-    playwright-chromium: "npm:^1.57.0"
-    prettier: "npm:^3.7.3"
-    prettier-plugin-slidev: "npm:^1.0.5"
-    slidev-theme-neversink: "npm:^0.4.0"
-    vite: "npm:^7.2.6"
-    vue: "npm:^3.5.25"
-  languageName: unknown
-  linkType: soft
-
 "codemirror-theme-vars@npm:^0.1.2":
   version: 0.1.2
   resolution: "codemirror-theme-vars@npm:0.1.2"
@@ -5288,6 +5272,22 @@ __metadata:
   checksum: 10c0/5bb4b1cd914b76d5efb01ee054c1a221ac723be1e38fb260264c6e253036943d301c1741cbf64f840689c6b3942bce21a6da6637de846a428e4c661dc8ee46ab
   languageName: node
   linkType: hard
+
+"kcd-cloud-native-on-prem@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "kcd-cloud-native-on-prem@workspace:."
+  dependencies:
+    "@slidev/cli": "npm:^52.10.1"
+    "@slidev/theme-default": "npm:latest"
+    "@slidev/theme-seriph": "npm:latest"
+    playwright-chromium: "npm:^1.57.0"
+    prettier: "npm:^3.7.3"
+    prettier-plugin-slidev: "npm:^1.0.5"
+    slidev-theme-neversink: "npm:^0.4.0"
+    vite: "npm:^7.2.6"
+    vue: "npm:^3.5.25"
+  languageName: unknown
+  linkType: soft
 
 "khroma@npm:^2.1.0":
   version: 2.1.0
