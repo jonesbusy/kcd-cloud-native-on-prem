@@ -376,7 +376,7 @@ color: slate-light
 
 <img src="/images/outbound-requests.png" width="900px" alt="SonarQube" class="mx-auto" />
 
-- Controller logs are not very useful for end-users, use events
+- Use events to inform users of important state changes
 
 <img src="/images/events.png" width="900px" alt="SonarQube" class="mx-auto" />
 
@@ -440,12 +440,19 @@ color: slate-light
 
 :: content ::
 
-- ~ `7500` CR managed (and growing!)
+<v-click>
+
+- 6 months in production (migrate some traditional automation to KRM model)
+- ~ `8000` CR managed (and growing!)
 - ~ `15` minutes to check all CRs state with max 5 reconciliations in parallel (restart)
 - ~ Less that `half second` start time with Quarkus native image
 - ~ `512 MB` memory for the operator
 
-<img src="/images/success_piccard.png" width="350px" alt="Success Picard" class="mx-auto" />
+</v-click>
+
+<v-click>
+<img src="/images/success_piccard.png" width="250px" alt="Success Picard" class="mx-auto" />
+</v-click>
 
 ---
 layout: image-right
