@@ -3,12 +3,12 @@ kind: HelmRelease
 metadata:
   name: my-app
 spec:
-  chart:
-      ...
   values:
     ...
     tag: 0.0.1
     replicas: 3
+    annotations:
+      ...
     affinity:
       podAntiAffinity:
         ...

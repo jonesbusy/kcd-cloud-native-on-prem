@@ -3,14 +3,12 @@ kind: HelmRelease
 metadata:
   name: my-app
 spec:
-  chart:
-      ...
   values:
     ...
     tag: latest
     replicas: 1
     database:
       external: false
-      resources: 
-         limits:
-           memory: "512Mi"
+    resources: 
+        limits:
+          memory: "512Mi"

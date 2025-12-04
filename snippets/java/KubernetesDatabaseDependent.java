@@ -1,8 +1,7 @@
 @KubernetesDependent
 public class KubernetesDatabaseDependent extends CRUDKubernetesDependentResource<Deployment, TodoApp> {
 
-    @Override
-    protected Deployment desired(TodoApp primary, Context<TodoApp> context) {
+    @Override protected Deployment desired(TodoApp primary, Context<TodoApp> context) {
             return new DeploymentBuilder()
                 .withNewMetadata()
                 .withName(primary.getMetadata().getName() + "-db")

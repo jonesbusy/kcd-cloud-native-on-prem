@@ -60,10 +60,9 @@ class: text
 
 # Agenda
 
-- `What` vs `How` and `Developer Experience`
+- Developer intent (`What`) vs implementation (`How`)
 - `K8S Operators` and the `KRM` model
 - `Java Operator SDK` and it's `Quarkus` extension
-- A `GitOps` and (`BackstageOps`) approach via `FluxCD`
 - Examples with K8S internal and external resources
 - Q&A
 
@@ -82,19 +81,27 @@ Developers only define intent in manifests. Platform handles the rest.
 
 :: title ::
 
-# `What` vs `How` (1)
+# Deploying app on K8S
 
 :: left ::
 
-<v-click>- I need to connect my app to a database</v-click><br />
+## What?
+
+<v-click>- Connect my app to a database</v-click><br />
 <v-click>- I need persistent storage for my service</v-click><br />
 <v-click>- I need my app to be highly available</v-click><br />
+<v-click>- ...</v-click><br />
 
 :: right ::
 
-<v-click>- I need to know how to deploy a database</v-click><br />
-<v-click>- I need to know which storage class to use and how to provision it</v-click><br />
-<v-click>- I need to know how many replicas to choose, cluster topology, etc.</v-click><br />
+## How?
+
+<v-click>- How to deploy a database? Where?</v-click><br />
+<v-click>- Which storage class to use and how to provision it?</v-click><br />
+<v-click>- How many replicas?</v-click><br />
+<v-click>- Cluster topology?</v-click><br />
+<v-click>- Affinity rules?</v-click><br />
+<v-click>- ...</v-click><br />
 
 ---
 layout: image-right
@@ -103,10 +110,12 @@ image: images/helm-boat.png
 class: text
 ---
 
-# `Helm to the rescue?`
+# Helm to the rescue?
 
 - Package your Kubernetes resources as single deployable unit
+- Hide complexity of multiple manifests
 - Define values to customize your deployments per environment
+- Integrate with GitOps tools (Flux CD, Argo CD, etc.)
 
 ---
 layout: top-title-two-cols
@@ -118,7 +127,7 @@ align: l-lt-lt
 
 :: title ::
 
-# `What` vs `How` (2)
+# Helm release
 
 :: left ::
 
@@ -128,7 +137,9 @@ align: l-lt-lt
 
 <v-click at="3">
 <AdmonitionType type='warning' >
-Different values for different environments (dev/prod)<br />More abstraction needed
+Different values for different environments (dev/prod)<br />
+Default values inside your charts<br />
+More abstraction needed
 </AdmonitionType>
 </v-click>
 
@@ -144,54 +155,42 @@ color: slate-light
 columns: is-6
 align: l-lt-lt
 ---
-
 <v-click>
-<strong>A Kubernetes Operator could</strong>
 
-- Deploy a Database on K8S or provision a new schema on an external cluster (external resource)
-- Drop a `ConfigMap` and `Secret` with required connection info
-- Set the correct number of replicas, affinity rules, monitoring, etc.
-- etc.
 </v-click>
 
 :: title ::
 
-# `What` vs `How` (3)
+# Custom Resource
 
 :: left ::
 
-<v-click>
 <<< @/snippets/cr/cr-app-dev.yaml
+
+<v-click>
+
+- Deploy a database on K8S <strong>or</strong> provision a new schema on an external one
+
+</v-click>
+
+<v-click>
+
+- Deploy a `Secret` with required connection info
+
+</v-click>
+
+<v-click>
+
+- Deploy the helm release and pass required values
 </v-click>
 
 :: right ::
 
-<v-click>
 <<< @/snippets/cr/cr-app-prod.yaml
+
+<v-click>
+<img src="/images/custom_resource_dependent.excalidraw.svg" alt="CR dep"/>
 </v-click>
-
----
-layout: image-left
-color: slate-light
-image: images/roller-coaster-loop.png
-class: text
----
-
-# Kubernetes reconcile loop
-
-<br />
-
-```mermaid
-flowchart LR
-    A[Desired State] -- Observe --> B[Actual State]
-    B -- Reconcile --> A
-```
-
-- Declarative (YAML manifests)
-- Immutable
-- Composable
-- Versioned (GitOps)
-- Extensible (KRM)
 
 ---
 layout: top-title-two-cols
@@ -204,42 +203,49 @@ color: slate-light
 
 :: left ::
 
-Everything is a resource
+<v-click>
+Fit well for a self-service developer platform
+</v-click>
+
+
+<v-click>
+Everything is a resource that user can request (UI, CLI, GitOps, ...)
+</v-click>
+
+<v-click>
 
 - An application
 - A database (inside or outside K8S)
 - A firewall rule
-- An image repository
+- A VM
 - A DNS entry
-- A service account token
+- A service account token or LDAP group
 - etc.
+
+</v-click>
 
 :: right ::
 
+<v-click>
+
 <img src="/images/idp.excalidraw.svg" alt="IDP"/>
 
+</v-click>
+
 ---
-layout: top-title-two-cols
+layout: top-title
 color: slate-light
-columns: is-6
-align: l-lt-lt
 ---
 
 :: title ::
 
-# Dependent resource
+# Java Operator SDK
 
-:: left ::
+:: content ::
 
-- A `Deployment` managing `ReplicaSet` which in turn manages `Pods` (High level vs low level resource)
-- High level abstractions or workflows
-- `owner` references and garbage collection (across same namespace only)
-- `Helm` is some kind of abstraction too! (On client side, no permanent reconciliation, no drift detection, etc.)
-- `Flux CD` resource `HelmRelease` fix some of the issues with `Helm` (server side reconciliation, drift detection, etc.)
-
-:: right ::
-
-<img src="/images/dependent_helm_release.excalidraw.svg" alt="Dependent Resource"/>
+- CNCF incubating project to build Kubernetes Operators (Go and Java)
+- Some operators like Keycloak Operator use the Java implementation
+- Quarkus extension + Native image support
 
 ---
 layout: top-title-two-cols
@@ -271,17 +277,12 @@ color: slate-light
 
 :: title ::
 
-# Dependent resource (1)
+# K8S dependent database resource
 
 :: content ::
 
-<<< @/snippets/java/DatabaseResource.java {*}{lines:true,class:'!children:text-xs'}
+<<< @/snippets/java/KubernetesDatabaseDependent.java {*}{lines:true,class:'!children:text-xs'}
 
-<AdmonitionType type='warning' >
-<ul>
-  <li>Equality if not using records</li>
-</ul>
-</AdmonitionType>
 
 ---
 layout: top-title
@@ -290,7 +291,7 @@ color: slate-light
 
 :: title ::
 
-# Dependent resource (2)
+# External dependent database resource (1)
 
 :: content ::
 
@@ -303,11 +304,17 @@ color: slate-light
 
 :: title ::
 
-# Dependent resource (3)
+# External dependent database resource (2)
 
 :: content ::
 
-<<< @/snippets/java/KubernetesDatabaseDependent.java {*}{lines:true,class:'!children:text-xs'}
+<<< @/snippets/java/DatabaseResource.java {*}{lines:true,class:'!children:text-xs'}
+
+<AdmonitionType type='warning' >
+<ul>
+  <li>Equality if not using records</li>
+</ul>
+</AdmonitionType>
 
 ---
 layout: top-title
