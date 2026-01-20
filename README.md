@@ -1,4 +1,4 @@
-# Cloud Native On-Prem Java Operator - KDC layout
+# Cloud Native On-Prem Java Operator - KCD Suisse Romande layout
 
 Slides
 
