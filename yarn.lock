@@ -1927,9 +1927,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slidev/cli@npm:^52.14.1":
-  version: 52.14.1
-  resolution: "@slidev/cli@npm:52.14.1"
+"@slidev/cli@npm:^52.14.2":
+  version: 52.14.2
+  resolution: "@slidev/cli@npm:52.14.2"
   dependencies:
     "@antfu/ni": "npm:^28.2.0"
     "@antfu/utils": "npm:^9.3.0"
@@ -1941,9 +1941,9 @@ __metadata:
     "@shikijs/markdown-it": "npm:^4.0.1"
     "@shikijs/twoslash": "npm:^4.0.1"
     "@shikijs/vitepress-twoslash": "npm:^4.0.1"
-    "@slidev/client": "npm:52.14.1"
-    "@slidev/parser": "npm:52.14.1"
-    "@slidev/types": "npm:52.14.1"
+    "@slidev/client": "npm:52.14.2"
+    "@slidev/parser": "npm:52.14.2"
+    "@slidev/types": "npm:52.14.2"
     "@unocss/extractor-mdc": "npm:^66.6.3"
     "@unocss/reset": "npm:^66.6.3"
     "@vitejs/plugin-vue": "npm:^6.0.4"
@@ -2008,13 +2008,13 @@ __metadata:
       optional: true
   bin:
     slidev: bin/slidev.mjs
-  checksum: 10c0/bf5d98b95cbf2923097c4ac3cb436b57591f3dec82a31adff6f6bde25b2ee8f8d79ae46e40f1289d8d544dc9e1ba4ed920e85e97569421e1947f0549ba6fe294
+  checksum: 10c0/f200ff8e7400066a806e999bf33869d838cabb8fed11eeac08b204be9588844af35db2bd59828f3c8324661fb563a0728cacce124c4a301ea0dfae79e7b7b6f9
   languageName: node
   linkType: hard
 
-"@slidev/client@npm:52.14.1":
-  version: 52.14.1
-  resolution: "@slidev/client@npm:52.14.1"
+"@slidev/client@npm:52.14.2":
+  version: 52.14.2
+  resolution: "@slidev/client@npm:52.14.2"
   dependencies:
     "@antfu/utils": "npm:^9.3.0"
     "@iconify-json/carbon": "npm:^1.2.19"
@@ -2023,9 +2023,9 @@ __metadata:
     "@shikijs/engine-javascript": "npm:^4.0.1"
     "@shikijs/monaco": "npm:^4.0.1"
     "@shikijs/vitepress-twoslash": "npm:^4.0.1"
-    "@slidev/parser": "npm:52.14.1"
+    "@slidev/parser": "npm:52.14.2"
     "@slidev/rough-notation": "npm:^0.1.0"
-    "@slidev/types": "npm:52.14.1"
+    "@slidev/types": "npm:52.14.2"
     "@typescript/ata": "npm:^0.9.8"
     "@unhead/vue": "npm:^2.1.10"
     "@unocss/extractor-mdc": "npm:^66.6.3"
@@ -2053,18 +2053,18 @@ __metadata:
     vue: "npm:^3.5.29"
     vue-router: "npm:^5.0.3"
     yaml: "npm:^2.8.2"
-  checksum: 10c0/603fe8af2d6f88e461e132bd3bab158150b5d8ae3abf244141610d9874997d935938a065d58a0af36bee328a1131dc0090e2b1e0d7e8bbcdff67eecd28b566a3
+  checksum: 10c0/22a817da883231ea5171f34167e23ca3c590e45c2a62d8161d88526405bfde2ad02327cc54e9c8ac48edbb12c35fc93cff280c212da69f134deb5865abeefa39
   languageName: node
   linkType: hard
 
-"@slidev/parser@npm:52.14.1":
-  version: 52.14.1
-  resolution: "@slidev/parser@npm:52.14.1"
+"@slidev/parser@npm:52.14.2":
+  version: 52.14.2
+  resolution: "@slidev/parser@npm:52.14.2"
   dependencies:
     "@antfu/utils": "npm:^9.3.0"
-    "@slidev/types": "npm:52.14.1"
+    "@slidev/types": "npm:52.14.2"
     yaml: "npm:^2.8.2"
-  checksum: 10c0/854a1f60dcb6552ac7a2e943c793d54a87ac9e8233fea56520e9cc357fd957fa5779056d759397ffa25402b14cdae51f56ab5c544bdb43e2dd99f935f230b223
+  checksum: 10c0/6a6095115822f20ebde880643ca5be302f5054838d85aba097d99e0c7634ca7cb8cb993faab25fdee8e381c9d6a4b67480a5f2ff81f06db0ca20308efaac16f7
   languageName: node
   linkType: hard
 
@@ -2116,9 +2116,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slidev/types@npm:52.14.1":
-  version: 52.14.1
-  resolution: "@slidev/types@npm:52.14.1"
+"@slidev/types@npm:52.14.2":
+  version: 52.14.2
+  resolution: "@slidev/types@npm:52.14.2"
   dependencies:
     "@antfu/utils": "npm:^9.3.0"
     "@shikijs/markdown-it": "npm:^4.0.1"
@@ -2137,7 +2137,7 @@ __metadata:
     vite-plugin-vue-server-ref: "npm:^1.0.0"
     vue: "npm:^3.5.29"
     vue-router: "npm:^5.0.3"
-  checksum: 10c0/cc6574a65954e97e5aee8dc9629b735edbdf5c9e648c6ce536f2eb2b7ef32808caa90ce9866f32995dfac5a96778cb1e1fe9aff0cd4f0d07cf81e84ae91486a1
+  checksum: 10c0/0751b834fb179a8b3d9188b89cb9fe966b4e34523d9d48e5896b0126ba1e9892dd4983f8b552fbacda1d21356b2f8387cf4bde5f47a7ce66ec55f1a4ffc657aa
   languageName: node
   linkType: hard
 
@@ -5923,7 +5923,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "kcd-cloud-native-on-prem@workspace:."
   dependencies:
-    "@slidev/cli": "npm:^52.14.1"
+    "@slidev/cli": "npm:^52.14.2"
     "@slidev/theme-default": "npm:latest"
     "@slidev/theme-seriph": "npm:latest"
     playwright-chromium: "npm:^1.57.0"
